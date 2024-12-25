@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Assurez-vous d'ajouter des styles pour la barre de navigation
+import './Navbar.css';
 
 const Navbar: React.FC = () => {
     return (

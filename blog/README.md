@@ -1,33 +1,41 @@
-# README.md
+# Website
 
-# Documentation du projet Docusaurus
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-Ce projet utilise Docusaurus pour générer et gérer la documentation. Docusaurus est un générateur de site statique conçu pour faciliter la création de documentation technique.
-
-## Installation
-
-Pour installer les dépendances, exécutez la commande suivante dans le dossier `blog` :
+### Installation
 
 ```
-npm install
+$ yarn
 ```
 
-## Démarrage du serveur de développement
-
-Pour démarrer le serveur de développement et voir la documentation en direct, utilisez la commande suivante :
+### Local Development
 
 ```
-npm start
+$ yarn start
 ```
 
-Cela ouvrira votre navigateur à l'adresse `http://localhost:3000`.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-## Structure du projet
+### Build
 
-- `docs/` : Contient les fichiers de documentation.
-- `docusaurus.config.js` : Fichier de configuration de Docusaurus.
-- `package.json` : Liste des dépendances et scripts pour le projet Docusaurus.
+```
+$ yarn build
+```
 
-## Contribution
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-Les contributions sont les bienvenues ! Veuillez soumettre une demande de tirage pour toute amélioration ou correction.
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

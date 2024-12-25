@@ -4,23 +4,27 @@
   "description": "Un site personnel pour présenter mes compétences et mon blog.",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "vite",
     "build": "vite build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "vite",
+    "test": "echo \"No test specified\" && exit 1",
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-parallax": "^3.5.1",
-    "react-scripts": "^5.0.1"
+    "react-i18next": "^15.2.0",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "typescript": "^5.7.2"
+    "@types/react-i18next": "^8.1.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^4.0.0"
   },
   "homepage": ".",
   "license": "MIT",
