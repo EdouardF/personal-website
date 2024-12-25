@@ -1,0 +1,17 @@
+{
+  "name": "[project-name]-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "deploy": "docusaurus deploy"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0",
+    "@docusaurus/preset-classic": "^2.0.0"
+  },
+  "devDependencies": {
+    "docusaurus": "^2.0.0"
+  }
+}
