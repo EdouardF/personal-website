@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: #fff;
+    margin: 0 15px;
+}
+
+.home {
+    height: 100vh;
+    background: url('../images/home-background.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+.about, .blog {
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.parallax {
+    background-image: url('../images/parallax-background.jpg');
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
