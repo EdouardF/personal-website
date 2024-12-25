@@ -1,18 +1,14 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Blog from './components/Blog';
+import ParallaxContainer from './components/ParallaxContainer';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
-      <Navbar />
-      <Home />
-      <About />
-      <Blog />
+    <div className="App">
+      {/* ...existing code... */}
+      <ParallaxContainer />
+      {/* ...existing code... */}
     </div>
   );
-};
+}
 
 export default App;

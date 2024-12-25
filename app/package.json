@@ -6,23 +6,21 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "echo \"No test specified\" && exit 1",
     "serve": "vite preview"
   },
   "dependencies": {
-    "@types/react-router-dom": "^5.3.3",
-    "i18next-browser-languagedetector": "^8.0.2",
-    "i18next-http-backend": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.2.0",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^6.0.0",
+    "i18next": "^21.6.0",
+    "react-i18next": "^11.8.5",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "i18next-http-backend": "^1.2.6"
   },
   "devDependencies": {
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "@types/react-i18next": "^8.1.0",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^3.0.0",
     "typescript": "^5.7.2",
     "vite": "^4.0.0"
   },
