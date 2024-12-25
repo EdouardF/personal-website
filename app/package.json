@@ -24,7 +24,7 @@
     "@types/react-i18next": "^8.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "typescript": "^5.7.2",
-    "vite": "^4.0.0"
+    "vite": "^6.0.5"
   },
   "homepage": ".",
   "license": "MIT",
