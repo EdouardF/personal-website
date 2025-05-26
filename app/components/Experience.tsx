@@ -12,7 +12,7 @@ export function Experience() {
 
   const experiences = [
     {
-      title: 'Position 1',
+      title: 'Head of SG Markets FOREX',
       company: 'Société Générale Corporate & Investment Banking',
       period: '2024 - Present',
       description: 'Description of your responsibilities and achievements in this role.',
@@ -20,13 +20,19 @@ export function Experience() {
     {
       title: 'Senior Consultant',
       company: 'Amaris Consulting',
-      period: '2020 - 2022',
+      period: '2022 - 2024',
       description: 'Description of your responsibilities and achievements in this role.',
     },
     {
-      title: 'Position 3',
-      company: 'Company 3',
-      period: '2018 - 2020',
+      title: 'IT Consultant',
+      company: 'Aubay',
+      period: '2019 - 2022',
+      description: 'Description of your responsibilities and achievements in this role.',
+    },
+    {
+      title: 'IT Consultant',
+      company: 'Accenture',
+      period: '2014 - 2018',
       description: 'Description of your responsibilities and achievements in this role.',
     },
   ]
