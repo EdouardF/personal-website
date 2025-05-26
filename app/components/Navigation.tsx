@@ -34,7 +34,7 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
             <a href="#hero" className="text-xl font-bold text-primary">
-              Your Name
+              Edouard Forgeau
             </a>
           </div>
 

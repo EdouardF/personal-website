@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb',
-        secondary: '#4f46e5',
+        primary: '#FF0000',
+        secondary: '#E55646',
       },
       fontFamily: {
         sans: ['var(--font-inter)'],

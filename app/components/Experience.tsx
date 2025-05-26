@@ -13,13 +13,13 @@ export function Experience() {
   const experiences = [
     {
       title: 'Position 1',
-      company: 'Company 1',
-      period: '2022 - Present',
+      company: 'Société Générale Corporate & Investment Banking',
+      period: '2024 - Present',
       description: 'Description of your responsibilities and achievements in this role.',
     },
     {
-      title: 'Position 2',
-      company: 'Company 2',
+      title: 'Senior Consultant',
+      company: 'Amaris Consulting',
       period: '2020 - 2022',
       description: 'Description of your responsibilities and achievements in this role.',
     },
@@ -70,7 +70,7 @@ export function Experience() {
             href="https://linkedin.com/in/edouardforgeau"
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-12 inline-flex items-center rounded-full bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
+            className="mb-12 inline-flex items-center rounded-full bg-red-600 px-6 py-3 text-white transition-colors hover:bg-red-700"
           >
             <FiLinkedin className="mr-2" />
             Connect on LinkedIn
