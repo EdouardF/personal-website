@@ -1,32 +1,27 @@
+import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Experience } from './components/Experience'
 import { Hobbies } from './components/Hobbies'
 import { Misc } from './components/Misc'
-import { Navigation } from './components/Navigation'
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main>
       <Navigation />
-      
-      <section id="hero" className="parallax-section">
+      <section id="home">
         <Hero />
       </section>
-
-      <section id="about" className="parallax-section">
+      <section id="about">
         <About />
       </section>
-
-      <section id="experience" className="parallax-section">
+      <section id="experience">
         <Experience />
       </section>
-
-      <section id="hobbies" className="parallax-section">
+      <section id="hobbies">
         <Hobbies />
       </section>
-
-      <section id="misc" className="parallax-section">
+      <section id="misc">
         <Misc />
       </section>
     </main>

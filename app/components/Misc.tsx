@@ -1,146 +1,229 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { FiGithub, FiMail, FiExternalLink, FiX, FiLinkedin } from 'react-icons/fi'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { FiGithub, FiTwitter, FiInstagram, FiMail, FiExternalLink } from 'react-icons/fi'
 
 export function Misc() {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const socialLinks = [
     {
-      icon: <FiLinkedin className="h-6 w-6" />,
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/edouardforgeau',
+      icon: <FiGithub />,
+      label: 'GitHub',
+      href: 'https://github.com/yourusername',
+      color: 'hover:bg-gray-800 dark:hover:bg-gray-700',
     },
     {
-      icon: <FiGithub className="h-6 w-6" />,
-      name: 'GitHub',
-      url: 'https://github.com/EdouardF',
+      icon: <FiTwitter />,
+      label: 'Twitter',
+      href: 'https://twitter.com/yourusername',
+      color: 'hover:bg-blue-500',
     },
     {
-      icon: <FiX className="h-6 w-6" />,
-      name: 'X',
-      url: 'https://x.com/EdouardForgeau',
+      icon: <FiInstagram />,
+      label: 'Instagram',
+      href: 'https://instagram.com/yourusername',
+      color: 'hover:bg-pink-500',
     },
     {
-      icon: <FiMail className="h-6 w-6" />,
-      name: 'Email',
-      url: 'mailto:edouard.forgeau@gmail.com',
+      icon: <FiMail />,
+      label: 'Email',
+      href: 'mailto:your.email@example.com',
+      color: 'hover:bg-red-500',
     },
   ]
 
-  const miscContent = [
+  const funFacts = [
+    "I've visited X countries",
+    "I speak Y languages",
+    "I love Z hobby",
+    "I've contributed to N open source projects",
+  ]
+
+  const achievements = [
     {
-      title: 'Blog Posts',
-      items: [
-        {
-          name: 'Article Title 1',
-          description: 'Brief description of the article.',
-          url: '#',
-        },
-        {
-          name: 'Article Title 2',
-          description: 'Brief description of the article.',
-          url: '#',
-        },
-      ],
+      year: '2024',
+      title: 'Achievement 1',
+      description: 'Description of the achievement',
     },
     {
-      title: 'Projects',
-      items: [
-        {
-          name: 'Project 1',
-          description: 'Brief description of the project.',
-          url: '#',
-        },
-        {
-          name: 'Project 2',
-          description: 'Brief description of the project.',
-          url: '#',
-        },
-      ],
+      year: '2023',
+      title: 'Achievement 2',
+      description: 'Description of the achievement',
+    },
+    {
+      year: '2022',
+      title: 'Achievement 3',
+      description: 'Description of the achievement',
     },
   ]
 
   return (
-    <div className="relative min-h-screen bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-white dark:bg-gray-900 overflow-hidden">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0">
+        <svg className="absolute h-full w-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+          <pattern
+            id="pattern-circles"
+            x="0"
+            y="0"
+            width="50"
+            height="50"
+            patternUnits="userSpaceOnUse"
+            patternContentUnits="userSpaceOnUse"
+          >
+            <circle cx="25" cy="25" r="8" fill="currentColor" className="text-primary" />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#pattern-circles)" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="mb-16 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
+          <motion.h2
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            className="mb-16 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl"
+          >
             More About Me
-          </h2>
+          </motion.h2>
         </motion.div>
 
         {/* Social Links */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="flex justify-center space-x-8">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
+          <h3 className="mb-8 text-center text-2xl font-semibold text-gray-900 dark:text-white">
+            Let's Connect
+          </h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                className={`group flex items-center space-x-2 rounded-full bg-gray-100 px-6 py-3 text-gray-700 transition-all dark:bg-gray-800 dark:text-gray-300 ${link.color}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {link.icon}
-                <span>{link.name}</span>
-              </a>
+                <span className="text-xl">{link.icon}</span>
+                <span>{link.label}</span>
+                <motion.span
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <FiExternalLink className="ml-1" />
+                </motion.span>
+              </motion.a>
             ))}
           </div>
         </motion.div>
 
-        {/* Misc Content */}
-        <div className="grid gap-8 md:grid-cols-2">
-          {miscContent.map((section, sectionIndex) => (
+        {/* Fun Facts */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mb-16"
+        >
+          <h3 className="mb-8 text-center text-2xl font-semibold text-gray-900 dark:text-white">
+            Fun Facts
+          </h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {funFacts.map((fact, index) => (
+              <motion.div
+                key={index}
+                className="group relative overflow-hidden rounded-lg bg-gray-50 p-6 dark:bg-gray-800"
+                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                />
+                <p className="text-gray-700 dark:text-gray-300">{fact}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Achievements Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <h3 className="mb-8 text-center text-2xl font-semibold text-gray-900 dark:text-white">
+            Notable Achievements
+          </h3>
+          <div className="relative">
+            {/* Timeline line */}
             <motion.div
-              key={sectionIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + sectionIndex * 0.2 }}
-              className="rounded-lg bg-gray-50 p-6 dark:bg-gray-800"
-            >
-              <h3 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                {section.title}
-              </h3>
-              <div className="space-y-6">
-                {section.items.map((item, itemIndex) => (
-                  <a
-                    key={itemIndex}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block rounded-lg bg-white p-4 transition-all hover:-translate-y-1 hover:shadow-md dark:bg-gray-900"
-                  >
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-lg font-medium text-gray-900 dark:text-white">
-                        {item.name}
+              className="absolute left-0 top-0 h-full w-0.5 bg-primary/20 md:left-1/2"
+              initial={{ height: 0 }}
+              animate={isInView ? { height: "100%" } : {}}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            />
+
+            <div className="space-y-8">
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={achievement.year}
+                  className={`flex ${
+                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  } items-center justify-center gap-8`}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                >
+                  <div className="w-full md:w-5/12">
+                    <motion.div
+                      className="group relative rounded-lg bg-gray-50 p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-gray-800"
+                      whileHover={{ y: -5 }}
+                    >
+                      <div className="mb-2 text-sm font-semibold text-primary">
+                        {achievement.year}
+                      </div>
+                      <h4 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+                        {achievement.title}
                       </h4>
-                      <FiExternalLink className="text-gray-400" />
-                    </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
-                      {item.description}
-                    </p>
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {achievement.description}
+                      </p>
+                      <motion.div
+                        className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 transition-opacity group-hover:opacity-100"
+                        animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      />
+                    </motion.div>
+                  </div>
+                  <motion.div
+                    className="absolute left-0 h-4 w-4 rounded-full bg-primary md:left-1/2 md:-ml-2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ duration: 0.2, delay: index * 0.2 }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   )
