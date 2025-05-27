@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiGithub, FiTwitter, FiInstagram, FiMail, FiExternalLink } from 'react-icons/fi'
+import { FiGithub, FiInstagram, FiMail, FiExternalLink, FiX } from 'react-icons/fi'
 
 export function Misc() {
   const ref = useRef(null)
@@ -12,25 +12,25 @@ export function Misc() {
     {
       icon: <FiGithub />,
       label: 'GitHub',
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/edouardf',
       color: 'hover:bg-gray-800 dark:hover:bg-gray-700',
     },
     {
-      icon: <FiTwitter />,
-      label: 'Twitter',
-      href: 'https://twitter.com/yourusername',
-      color: 'hover:bg-blue-500',
+      icon: <FiX />,
+      label: 'X',
+      href: 'https://x.com/edouardforgeau',
+      color: 'hover:bg-gray-500',
     },
     {
       icon: <FiInstagram />,
       label: 'Instagram',
-      href: 'https://instagram.com/yourusername',
+      href: 'https://instagram.com/edouard.f',
       color: 'hover:bg-pink-500',
     },
     {
       icon: <FiMail />,
       label: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:edouard.forgeau@gmail.com',
       color: 'hover:bg-red-500',
     },
   ]

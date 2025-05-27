@@ -16,7 +16,7 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0])
 
-  // Floating animation variants
+  // Enhanced floating animation variants
   const floatingAnimation = {
     y: [-20, 20],
     transition: {
@@ -29,6 +29,32 @@ export function Hero() {
     }
   }
 
+  // Create dots with different sizes for the header
+  const dots = Array.from({ length: 30 }, (_, i) => ({
+    size: Math.random() * 6 + 2, // Random size between 2-8px
+    initialX: Math.random() * 100,
+    initialY: Math.random() * 100,
+    xOffset: useTransform(scrollYProgress, [0, 1], ['0%', `${(Math.random() - 0.5) * 100}%`]),
+    yOffset: useTransform(scrollYProgress, [0, 1], ['0%', `${(Math.random() - 0.5) * 100}%`]),
+    opacity: Math.random() * 0.5 + 0.2, // Random opacity between 0.2-0.7
+  }))
+
+  // Define size classes for floating elements
+  const floatingElementSizes = [
+    'h-8 w-8',
+    'h-12 w-12',
+    'h-16 w-16',
+    'h-20 w-20',
+    'h-24 w-24'
+  ]
+
+  // Define size classes for geometric shapes
+  const shapesSizes = [
+    'h-16 w-16',
+    'h-24 w-24',
+    'h-32 w-32'
+  ]
+
   return (
     <div ref={ref} className="relative h-screen overflow-hidden">
       {/* Background Layer */}
@@ -40,8 +66,36 @@ export function Hero() {
         <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat" />
       </motion.div>
 
-      {/* Decorative floating elements */}
+      {/* Dots Layer */}
       <div className="absolute inset-0 z-10 overflow-hidden">
+        {dots.map((dot, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-primary"
+            style={{
+              width: `${dot.size}px`,
+              height: `${dot.size}px`,
+              left: `${dot.initialX}%`,
+              top: `${dot.initialY}%`,
+              opacity: dot.opacity,
+              x: dot.xOffset,
+              y: dot.yOffset,
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [dot.opacity, dot.opacity * 1.5, dot.opacity],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Decorative floating elements */}
+      <div className="absolute inset-0 z-20 overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
@@ -49,6 +103,7 @@ export function Hero() {
             style={{
               left: `${15 + i * 20}%`,
               top: `${20 + i * 15}%`,
+              y: useTransform(scrollYProgress, [0, 1], ['0%', `${30 + i * 10}%`]),
             }}
             animate={floatingAnimation}
             transition={{
@@ -56,7 +111,7 @@ export function Hero() {
               duration: 3 + i * 0.5,
             }}
           >
-            <div className={`h-${8 + i * 4} w-${8 + i * 4} rounded-full bg-primary/10 backdrop-blur-sm`} />
+            <div className={`${floatingElementSizes[i]} rounded-full bg-primary/10 backdrop-blur-sm`} />
           </motion.div>
         ))}
       </div>
@@ -64,7 +119,7 @@ export function Hero() {
       {/* Middle Layer with geometric shapes */}
       <motion.div
         style={{ y: middleY }}
-        className="absolute inset-0 z-20"
+        className="absolute inset-0 z-30"
       >
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -73,6 +128,7 @@ export function Hero() {
             style={{
               right: `${10 + i * 25}%`,
               top: `${30 + i * 20}%`,
+              y: useTransform(scrollYProgress, [0, 1], ['0%', `${20 + i * 15}%`]),
             }}
             animate={{
               rotate: [0, 360],
@@ -84,7 +140,7 @@ export function Hero() {
               ease: "linear",
             }}
           >
-            <div className={`h-${16 + i * 8} w-${16 + i * 8} rotate-${45 * i} bg-secondary/5 backdrop-blur-md`} />
+            <div className={`${shapesSizes[i]} bg-secondary/5 backdrop-blur-md ${i === 0 ? '' : i === 1 ? 'rotate-45' : 'rotate-90'}`} />
           </motion.div>
         ))}
       </motion.div>
@@ -92,7 +148,7 @@ export function Hero() {
       {/* Content Layer */}
       <motion.div
         style={{ y: contentY }}
-        className="relative z-30 flex h-full items-center justify-center px-4 text-center"
+        className="relative z-40 flex h-full items-center justify-center px-4 text-center"
       >
         <div className="max-w-4xl">
           <motion.h1 
